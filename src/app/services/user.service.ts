@@ -10,9 +10,9 @@ export class UserService {
   constructor(private http: HttpClient) { }
   userRegister(data){
     //console.log('data register', data);
-    return this.http.post<any>('api/user/registre',data)
+    return this.http.post<any>('https://blogangularo.herokuapp.com/api/user/registre',data)
   }
   userlogin(data){
-    return this.http.post<any>('api/user/login',data);
+    return this.http.post<any>('https://blogangularo.herokuapp.com/api/user/login',data);
   }
 }
