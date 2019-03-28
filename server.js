@@ -21,15 +21,15 @@ mongoose
 app.use(bodyparser.json());
 
 /* deploy config */
-app.use(express.static(path.static(__dirname,'../dist/blog')));
+app.use(express.static(path.static(__dirname,'../dist/blog/')));
 app.get('*',(req,res) => {
   res.sendFile(path.join(__dirname,'../dist/blog/index.html'));
 });
-
+/*
 app.get('/',(req,res) => {
   res.send({msg:'hello world'});
 });
-
+*/
 const user = require('./server/Routes/user');
 app.use('/api/user',user);
 
