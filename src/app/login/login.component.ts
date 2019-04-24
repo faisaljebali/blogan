@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('usertoken', res.userToken);
           localStorage.setItem('response', res.status);
           localStorage.setItem('response', res.iduser);
+          this.router.navigate(['/dashbord']);
+          window.location.reload();
         } else {
           //console.log(res.status);
           this.messageError = 'Email or password is incorrect';

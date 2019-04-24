@@ -16,9 +16,12 @@
         <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
       </li>
     </ul>
-    <div class="form-inline my-2 my-lg-0">
+    <div *ngIf='!isLogin' class="form-inline my-2 my-lg-0">
       <a class="btn btn-light" [routerLink]="['/signin']" routerLinkActive="router-link-active" >Singin</a>
       <a class="btn btn-success" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Singup</a>
+    </div>
+    <div *ngIf='isLogin' class="form-inline my-2 my-lg-0">
+      <a class="btn btn-danger" (click)="logout()" >Logout</a>
     </div>
   </div>
 </nav>

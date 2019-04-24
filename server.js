@@ -33,5 +33,5 @@ const user = require('./server/Routes/user');
 app.use('/api/user',user);
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port,()=> console.log(`port used is : ${port}`))
