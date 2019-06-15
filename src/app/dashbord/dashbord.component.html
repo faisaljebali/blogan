@@ -1,3 +1,7 @@
-<p>
-  dashbord works!
-</p>
+<div class='container-fluid container'>
+<div class="article" *ngFor="let post of allpost" >
+    <a href="post/{{post._id}}">{{post.title}}</a>
+    <p>{{post.description | striphtml | slice:0:350}}</p>
+    <a href="post/{{post._id}}">{{post.user.nom}}</a>
+</div>
+</div>

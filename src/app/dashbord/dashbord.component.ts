@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-dashbord',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent implements OnInit {
-
-  constructor() { }
+  allpost : any;
+  constructor(private postservice: PostService) { }
 
   ngOnInit() {
+     return this.postservice.getposts().subscribe((res:any) => {
+        this.allpost = res;
+    });
   }
 
 }

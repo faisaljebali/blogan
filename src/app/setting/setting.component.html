@@ -1,0 +1,36 @@
+<div class='container-fluid container'>
+<br>
+<h1>Add a post</h1>
+<form [formGroup]="formadd" id="formadd" (ngSubmit)="addarticle()">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control"  formControlName="title" name="title" placeholder="Title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.title.errors.required">Title is required</div>
+          </div>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <!--<textarea class="form-control" rows="8"  placeholder="Description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>-->
+        <app-ngx-editor minHeight="350px" [placeholder]="'Enter text here...'" [spellcheck]="true" formControlName="description" name="description"></app-ngx-editor>
+
+          <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required">Description is required</div>
+          </div>
+    </div>
+<div class="form-group">
+<label class="btn btn-default btn-file " id="btnbrowse">
+Image <input type="file" formControlName="fileimage" name="fileimage" (change)="filechangeEvent($event)" id="btnupload" [ngClass]="{ 'is-invalid': submitted && f.fileimage.errors }">
+</label>
+<div *ngIf="submitted && f.fileimage.errors" class="invalid-feedback">
+    <div *ngIf="f.fileimage.errors.required">Upload an image</div>
+  </div>
+</div>
+</form>
+<div class="form-group ">
+  <button type="submit" class="btn btn-primary btncreate" (click)="addarticle($event)" id="submitArticle">
+    <i class="fas fa-plus"></i>   Create
+  </button>
+
+</div>
+</div>

@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +15,9 @@ export class LoginComponent implements OnInit {
   submitted = false;
   items;
   messageError: string = '';
-  constructor(private router: Router, private http: HttpClient, private fb: FormBuilder, private apiUser: UserService) {
+  constructor(private router: Router, private http: HttpClient,
+    private fb: FormBuilder, private apiUser: UserService,
+    private cookieService: CookieService) {
     this.formlogin = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -33,9 +37,11 @@ export class LoginComponent implements OnInit {
         this.items = JSON.stringify(res);
         //console.log(this.items);
         if (res.status === '200') {
-          localStorage.setItem('usertoken', res.userToken);
+          localStorage.setItem('usertoken', res.userTokeb);
           localStorage.setItem('response', res.status);
           localStorage.setItem('response', res.iduser);
+          //localStorage.setItem('nomUser', res.nom);
+          this.cookieService.set( 'nom_user', res.nom_user );
           this.router.navigate(['/dashbord']);
           window.location.reload();
         } else {

@@ -9,6 +9,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
+import { FooterComponent } from './footer/footer.component';
+import { CookieService } from 'ngx-cookie-service';
+import { SettingComponent } from './setting/setting.component';
+import { NgxEditorModule } from 'ngx-editor';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { StriphtmlPipe } from './striphtml.pipe';
+
+
 //import {HttpModule} from '@angular/http';
 
 @NgModule({
@@ -17,16 +25,21 @@ import { DashbordComponent } from './dashbord/dashbord.component';
     RegistreComponent,
     NavbarComponent,
     LoginComponent,
-    DashbordComponent
+    DashbordComponent,
+    FooterComponent,
+    SettingComponent,
+    StriphtmlPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEditorModule,
+    AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
