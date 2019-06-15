@@ -19,18 +19,17 @@ mongoose
         .catch(err => console.log(err));
 
 app.use(bodyparser.json());
-
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/blog'));
-app.get('/', function(req,res) {
-res.sendFile(path.join(__dirname+'/dist/blog/index.html'));
-});
 // LOAD URL API POST
 const user = require('./server/Routes/user');
 app.use('/api/user',user);
 // LOAD URL API POST
 const post = require('./server/Routes/post');
 app.use('/api/post',post);
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/blog'));
+app.get('/', function(req,res) {
+res.sendFile(path.join(__dirname+'/dist/blog/index.html'));
+});
 
 // PORT APP
 const port = process.env.PORT || 3800;
