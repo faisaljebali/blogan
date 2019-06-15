@@ -3,12 +3,12 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST'); /*on donne l'access du delete put get post*/
-  next();
-});
+  /*next();
+});*/
 
 // get url database
 const db = require('./server/config/keys').mongoIRU;
@@ -21,10 +21,10 @@ mongoose
 app.use(bodyparser.json());
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/blog'));
 app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+'/dist/blog/index.html'));
 });
+app.use(express.static(__dirname + '/dist/blog'));
 
 // LOAD URL API POST
 const user = require('./server/Routes/user');
