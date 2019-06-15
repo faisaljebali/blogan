@@ -21,10 +21,10 @@ mongoose
 app.use(bodyparser.json());
 
 // Serve only the static files form the dist directory
-/* app.use(express.static(__dirname + '/dist/blog'));
+app.use(express.static(__dirname + '/dist/blog'));
 app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+'/dist/blog/index.html'));
-}); */
+}); 
 
 // LOAD URL API POST
 const user = require('./server/Routes/user');

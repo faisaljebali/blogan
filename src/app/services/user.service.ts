@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  appUrl:string = "http://localhost:3800/api";
+  appUrl:string = "https://blogangularo.herokuapp.com/api";
   constructor(private http: HttpClient) { }
   userRegister(data){
     //console.log('data register', data);

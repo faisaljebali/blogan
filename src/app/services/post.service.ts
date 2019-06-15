@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
   providedIn: 'root'
 })
 export class PostService {
-  apiurl:string = 'http://localhost:3800/api';
+  apiurl:string = 'https://blogangularo.herokuapp.com/api';
   constructor(private http: HttpClient) { }
   addarticle(data){
     return this.http.post<any>(`${this.apiurl}/post/add`,data);
