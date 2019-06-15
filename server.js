@@ -27,7 +27,7 @@ const post = require('./server/Routes/post');
 app.use('/api/post',post);
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/blog'));
-app.get('/', function(req,res) {
+app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+'/dist/blog/index.html'));
 });
 
