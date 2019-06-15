@@ -26,7 +26,7 @@ router.post('/add', async (req,res) => {
 });
 router.get('/all',async function(req,res){
   const data = await postModel.find().populate({ path: 'user' });
-  res.send(data)
+  res.send(data);
 
 });
 module.exports = router;
